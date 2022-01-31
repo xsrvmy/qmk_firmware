@@ -1,0 +1,8 @@
+MOUSEKEY_ENABLE = yes
+#STENO_ENABLE = yes
+MIDI_ENABLE = yes
+RGBLIGHT_ENABLE = yes
+BACKLIGHT_ENABLE = no
+COMBO_ENABLE = yes
+AUDIO_ENABLE = yes
+VPATH += keyboards/gboards
