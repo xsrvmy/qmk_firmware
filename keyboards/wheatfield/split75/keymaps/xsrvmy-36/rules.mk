@@ -1,0 +1,5 @@
+MOUSEKEY_ENABLE = yes
+RGBLIGHT_ENABLE = no
+BACKLIGHT_ENABLE = no
+COMBO_ENABLE = yes
+VPATH += keyboards/gboards
