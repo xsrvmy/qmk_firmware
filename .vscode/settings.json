@@ -28,7 +28,8 @@
     "[json]": {
         "editor.formatOnSave": false
     },
-    "clangd.arguments": [
-        "--header-insertion=never"
-    ]
+    "[c]": {
+        "editor.tabSize": 8,
+        "editor.insertSpaces": false
+    }
 }
