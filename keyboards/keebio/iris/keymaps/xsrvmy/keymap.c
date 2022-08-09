@@ -6,6 +6,7 @@
 #define _DVORAK 0
 #define _QWERTY 1
 #define _HDTVAR 2
+#define _HDNVAR 3
 #define _LOWER 8
 #define _RAISE 9
 #define _ADJUST 10
@@ -23,6 +24,7 @@
 #define KC_QWERTY DF(_QWERTY)
 #define KC_DVORAK DF(_DVORAK)
 #define KC_HDTVAR DF(_HDTVAR)
+#define KC_HDNVAR DF(_HDNVAR)
 #define KC_LOWER LT(_LOWER, KC_ESC)
 #define KC_RAISE LT(_RAISE, KC_TAB)
 #define KC_OSM_LS OSM(MOD_LSFT)
@@ -53,6 +55,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 						LOWER,	R,	BSPC,		ENTER,	SPACE,	RAISE
 	),
 
+	[_HDNVAR] = LAYOUT_KC(
+		GRAVE,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	BSLS,
+		Q,	B,	C,	L,	D,	V,				QUOT,	U,	O,	Y,	J,	Z,
+		LPRN,	R,	S,	N,	T,	F,				COMMA,	A,	E,	I,	H,	RPRN,
+		LBRC,	W,	G,	M,	P,	K,	LALT,		LGUI,	SCLN,	DOT,	MINUS,	DQUO,	X,	RBRC,
+						LOWER,	LSFT,	BSPC,		ENTER,	SPACE,	RAISE
+	),
+
 	[_LOWER] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	HOME,	UP,	END,	XXXX,	XXXX,
@@ -63,15 +73,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_RAISE] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	HOME,	UP,	END,	XXXX,	XXXX,
-		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	LEFT,	DOWN,	RIGHT,	SCLN,	XXXX,
-		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
+		XXXX,	F1,	F2,	F3,	F4,	XXXX,				XXXX,	HOME,	UP,	END,	XXXX,	XXXX,
+		XXXX,	F5,	F6,	F7,	F8,	XXXX,				XXXX,	LEFT,	DOWN,	RIGHT,	SCLN,	XXXX,
+		XXXX,	F9,	F10,	F11,	F12,	XXXX,	XXXX,		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
 						____,	XXXX,	XXXX,		XXXX,	XXXX,	____
 	),
 
 	[_ADJUST] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	RESET,
-		XXXX,	QWERTY,	DVORAK,	HDTVAR, XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	EEPRST,
+		XXXX,	QWERTY,	DVORAK,	HDTVAR, HDNVAR,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	EEPRST,
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	RGBTOG,	XXXX,	XXXX,	XXXX,	XXXX,
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
 						____,	XXXX,	XXXX,		XXXX,	XXXX,	____
@@ -84,7 +94,9 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) { 
 	if (keycode == KC_DVORAK) {
-		rgblight_sethsv_noeeprom(HSV_WHITE);
+		rgblight_sethsv(HSV_WHITE);
+	} else if (keycode == KC_HDNVAR) {
+		rgblight_sethsv_noeeprom(HSV_BLUE);
 	} else if (keycode == KC_HDTVAR) {
 		rgblight_sethsv_noeeprom(HSV_GREEN);
 	}
