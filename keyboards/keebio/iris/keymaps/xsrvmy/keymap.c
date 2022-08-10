@@ -40,11 +40,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	[_QWERTY] = LAYOUT_KC(
-		XXXX,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	XXXX,
-		XXXX,	Q,	W,	E,	R,	T,				Y,	U,	I,	O,	P,	XXXX,
-		XXXX,	A,	S,	D,	F,	G,				H,	J,	K,	L,	SCLN,	XXXX,
-		XXXX,	Z,	X,	C,	V,	B,	XXXX,		XXXX,	N,	M,	COMMA,	DOT,	SLASH,	XXXX,
-						LOWER,	SPACE,	BSPC,		ENTER,	SPACE,	RAISE
+		GRAVE,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	MINUS,
+		LBRC,	Q,	W,	E,	R,	T,				Y,	U,	I,	O,	P,	RBRC,
+		LSFT,	A,	S,	D,	F,	G,				H,	J,	K,	L,	SCLN,	QUOT,
+		LCTL,	Z,	X,	C,	V,	B,	DEL,		BSLS,	N,	M,	COMMA,	DOT,	SLASH,	EQUAL,
+						ESC,	SPACE,	BSPC,		ENTER,	LALT,	RAISE
 	),
 
 	[_HDTVAR] = LAYOUT_KC(
