@@ -38,6 +38,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLIGHT_DEFAULT_MODE
 #define RGBLIGHT_DEFAULT_MODE RGBLIGHT_MODE_STATIC_LIGHT
 
-#define COMBO_TERM 40
+#define COMBO_TERM 30
 #define COMBO_ONLY_FROM_LAYER 1
 #define COMBO_MUST_HOLD_PER_COMBO
