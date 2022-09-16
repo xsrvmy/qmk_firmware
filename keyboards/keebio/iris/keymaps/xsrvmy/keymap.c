@@ -10,10 +10,9 @@
 #define _DVORAK 0
 #define _QWERTY 1
 #define _APTMOD 2
-#define _HDNMOD 3
-#define _LOWER 4
-#define _RAISE 5
-#define _ADJUST 6
+#define _LOWER 8
+#define _RAISE 9
+#define _ADJUST 10
 
 /***** KC_ ALIAS *****/
 #define KC_____ KC_TRNS
@@ -21,52 +20,31 @@
 #define KC_RESET RESET
 #define KC_RGBTOG RGB_TOG
 #define KC_EEPRST EEPROM_RESET
-#define KC_LOWER LT(_LOWER, KC_ESC)
-#define KC_RAISE LT(_RAISE, KC_TAB)
-#define KC_OSM_LS OSM(MOD_LSFT)
-#define KC_SFT_Q LSFT_T(KC_Q)
-#define KC_SFT_Z RSFT_T(KC_Z)
-#define KC_QWERTY DF(_QWERTY)
-#define KC_DVORAK DF(_DVORAK)
-#define KC_APTMOD DF(_APTMOD)
-// #define KC_RGBTOG BL_TOGG
+#define KC_LOWER MO(_LOWER)
+#define KC_RAISE MO(_RAISE)
 
-/***** CUSTOM KEYCODES *****/
-// enum my_keycodes {
-	// KC_QWERTY = SAFE_RANGE,
-	// KC_DVORAK,
-	// KC_APTMOD,
-	// KC_HDNMOD,
-// };
+#define KC_DVORAK DF(_DVORAK)
+#define KC_QWERTY DF(_QWERTY)
+#define KC_APTMOD DF(_APTMOD)
 
 /***** KEYMAP *****/
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_DVORAK] = LAYOUT_KC(
-		// XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-		GRV,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	BSLS,
-		TAB,	QUOT,	COMMA,	DOT,	P,	Y,				F,	G,	C,	R,	L,	SLASH,
-		ESC,	A,	O,	E,	U,	I,				D,	H,	T,	N,	S,	MINUS,
-		EQUAL,	SCLN,	Q,	J,	K,	X,	LALT,		LGUI,	B,	M,	W,	V,	Z,	BSLS,
+		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
+		// GRV,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	BSLS,
+		XXXX,	QUOT,	COMMA,	DOT,	P,	Y,				F,	G,	C,	R,	L,	XXXX,
+		XXXX,	A,	O,	E,	U,	I,				D,	H,	T,	N,	S,	XXXX,
+		XXXX,	SCLN,	Q,	J,	K,	X,	XXXX,		XXXX,	B,	M,	W,	V,	Z,	XXXX,
 						LOWER,	LSFT,	BSPC,		ENTER,	SPACE,	RAISE
 	),
 
 	[_APTMOD] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-		//GRV,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	BSLS,
-		GRAVE,	W,	G,	D,	F,	V,				Q,	L,	U,	O,	Y,	SLASH,
-		ESC,	R,	S,	T,	H,	B,				J,	N,	E,	A,	I,	MINUS,
-		EQUAL,	X,	C,	M,	P,	K,	LALT,		LGUI,	Z,	DOT,	QUOT,	COMMA,	SCLN,	BSLS,
+		XXXX,	W,	G,	D,	F,	V,				Q,	L,	U,	O,	Y,	XXXX,
+		XXXX,	R,	S,	T,	H,	B,				J,	N,	E,	A,	I,	XXXX,
+		XXXX,	X,	C,	M,	P,	K,	XXXX,		XXXX,	Z,	DOT,	QUOT,	COMMA,	SCLN,	XXXX,
 						LOWER,	LSFT,	BSPC,		ENTER,	SPACE,	RAISE
 	),
-
-	// [_HDNMOD] = LAYOUT_KC(
-	// 	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-	// 	//GRV,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	BSLS,
-	// 	GRAVE,	W,	P,	C,	D,	K,				QUOT,	U,	O,	Y,	J,	SLASH,
-	// 	LSFT,	L,	N,	S,	T,	M,				DOT,	A,	E,	I,	H,	RSFT,
-	// 	LBRC,	Q,	B,	G,	F,	V,	LALT,		LGUI,	SLASH,	COMMA,	SCLN,	X,	Z,	RBRC,
-	// 					LOWER,	R,	BSPC,		ENTER,	SPACE,	RAISE
-	// ),
 
 	[_QWERTY] = LAYOUT_KC(
 		GRAVE,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	MINUS,
@@ -78,18 +56,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_LOWER] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-		TAB,	XXXX,	HOME,	UP,	END,	XXXX,				LBRC,	7,	8,	9,	SLASH,	BSLS,
-		ESC,	XXXX,	LEFT,	DOWN,	RIGHT,	XXXX,				DOT,	4,	5,	6,	0,	MINUS,
-		XXXX,	LGUI,	LALT,	LCTL,	LSFT,	XXXX,	XXXX,		XXXX,	COLON,	1,	2,	3,	COMMA,	EQUAL,
-						____,	XXXX,	XXXX,		XXXX,	SPC,	____
+		XXXX,	GRAVE,	COMMA,	DOT,	ESC,	XXXX,				XXXX,	MINUS,	EQUAL,	SLASH,	BSLS,	XXXX,
+		XXXX,	1,	2,	3,	4,	5,				6,	7,	8,	9,	0,	XXXX,
+		XXXX,	LGUI,	LALT,	LCTL,	LSFT,	COLON,	XXXX,		XXXX,	XXXX,	RSFT,	RCTL,	RALT,	RGUI,	XXXX,
+						____,	____,	____,		____,	____,	____
 	),
 
 	[_RAISE] = LAYOUT_KC(
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	DVORAK,
-		XXXX,	F1,	F2,	F3,	F4,	XXXX,				PGUP,	HOME,	UP,	END,	XXXX,	XXXX,
-		XXXX,	F5,	F6,	F7,	F8,	XXXX,				PGDN,	LEFT,	DOWN,	RIGHT,	XXXX,	XXXX,
-		XXXX,	F9,	F10,	F11,	F12,	XXXX,	XXXX,		XXXX,	XXXX,	RSFT,	RCTL,	RALT,	RGUI,	XXXX,
-						____,	XXXX,	XXXX,		XXXX,	XXXX,	____
+		XXXX,	F1,	F2,	F3,	F4,	F10,				PGUP,	HOME,	UP,	END,	DEL,	XXXX,
+		XXXX,	F5,	F6,	F7,	F8,	F9,				PGDN,	LEFT,	DOWN,	RIGHT,	TAB,	XXXX,
+		XXXX,	LGUI,	LALT,	LCTL,	LSFT,	F11,	XXXX,		XXXX,	F12,	RSFT,	RCTL,	RALT,	RGUI,	XXXX,
+						____,	____,	____,		____,	____,	____
 	),
 
 	[_ADJUST] = LAYOUT_KC(
@@ -97,11 +75,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		XXXX,	QWERTY,	DVORAK,	APTMOD,	XXXX,	XXXX,				XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	EEPRST,
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,				XXXX,	RGBTOG,	XXXX,	XXXX,	XXXX,	XXXX,
 		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,		XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,	XXXX,
-						____,	XXXX,	XXXX,		XXXX,	XXXX,	____
+						____,	____,	____,		____,	____,	____
 	)
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+	if (get_highest_layer(state) != _DVORAK && get_highest_layer(state) != _APTMOD) {
+		combo_disable();
+	} else {
+		combo_enable();
+	}
 	return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
@@ -109,17 +92,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	if (keycode == KC_QWERTY) {
 		// set_single_persistent_default_layer(_QWERTY);
 		rgblight_sethsv_noeeprom(40, 255, 51);
-		combo_disable();
 	}
 	if (keycode == KC_DVORAK) {
 		// set_single_persistent_default_layer(_DVORAK);
 		rgblight_sethsv_noeeprom(0, 0, 51);
-		combo_enable();
-	}
-	if (keycode == KC_APTMOD) {
-		// set_single_persistent_default_layer(_APTMOD);
-		rgblight_sethsv_noeeprom(180, 255, 51);
-		combo_disable();
 	}
 	return true;
  }
