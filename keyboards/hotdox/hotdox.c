@@ -1,5 +1,7 @@
 #include "hotdox.h"
+#ifdef BACKLIGHT_ENABLE
 #include "backlight.h"
+#endif
 #include "quantum.h"
 
 extern inline void ergodox_board_led_on(void);
