@@ -1,0 +1,11 @@
+#include QMK_KEYBOARD_H
+#include "keymap_steno.h"
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+[0] = LAYOUT_planck_grid(
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, STN_U, STN_E, STN_O, STN_A, STN_N1, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, STN_ZR, STN_SR, STN_GR, STN_BR, STN_RR, STN_ST4, STN_ST2, STN_RL, STN_WL, STN_KL, STN_S2,
+    KC_NO, STN_DR, STN_TR, STN_LR, STN_PR, STN_FR, STN_ST3, STN_ST1, STN_HL, STN_PL, STN_TL, STN_S1
+),
+};
